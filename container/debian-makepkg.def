@@ -1,0 +1,23 @@
+BootStrap: debootstrap
+OSVersion: stable
+MirrorURL: http://debian.csail.mit.edu/debian/
+# MirrorURL: http://ftp.us.debian.org/debian/
+
+%files
+    pacman_emulator /usr/bin/pacman
+    makedeb.sh /usr/bin/makedeb
+    rules.json /usr/share/pacman/rules.json
+
+%post
+    # Install packages
+    apt-get -y install nano wget locales gcc makepkg curl file libarchive-tools zlib1g-dev sudo
+
+    # Set locale
+    echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+    locale-gen
+
+    # Allow sudo in the container
+    sed -i '/use_pty/s/^/#/' /etc/sudoers
+
+    # Create build user
+    useradd build

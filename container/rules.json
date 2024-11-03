@@ -1,0 +1,18 @@
+{
+    "java-runtime": {
+        "install": ["default-jre"],
+        "make": []
+    },
+    "java-runtime-headless": {
+        "install": ["default-jre-headless"],
+        "make": []
+    },
+    "zlib": {
+        "install": ["zlib1g"],
+        "make": ["zlib1g-dev"]
+    },
+    "zstd": {
+        "install": ["zstd"],
+        "make": ["libzstd-dev"]
+    }
+}

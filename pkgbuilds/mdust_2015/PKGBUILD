@@ -1,0 +1,25 @@
+# Maintainer: Charles Vejnar <first name [dot] last name [at] gmail [dot] com>
+
+pkgname=mdust
+pkgver=2015
+_pkgver_hash="3e3fed8da3965ddfc7b440a9ec371af14d4f5dc4"
+pkgrel=1
+pkgdesc="mdust from DFCI Gene Indices Software Tools"
+arch=("x86_64")
+url="https://github.com/lh3/mdust"
+license=("Artistic-2.0")
+depends=()
+source=("$pkgname-$pkgver.tar.gz::https://github.com/lh3/mdust/archive/${_pkgver_hash}.tar.gz")
+sha256sums=('3199638f424d415f28b6f46a69d1cac1f9de605625c3edb958e78a3ee10eab14')
+
+build() {
+    cd "$srcdir/mdust-$_pkgver_hash"
+
+    make
+}
+
+package() {
+    cd "$srcdir/mdust-$_pkgver_hash"
+
+    install -Dm755 mdust "$pkgdir/usr/bin/mdust"
+}
