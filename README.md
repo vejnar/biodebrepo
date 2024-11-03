@@ -58,7 +58,7 @@ To manually compile a package, for example [Bowtie2](https://github.com/BenLangm
 2. Execute `makedeb` in container
     ```bash
     apptainer exec --fakeroot --writable-tmpfs debian-makepkg.sif makedeb
-        ```
+    ```
 
 ### Create repo
 
