@@ -51,13 +51,13 @@ sudo apt install bowtie2 star-cshl=2.7.11b-1
 ### Manual
 
 To manually compile a package, for example [Bowtie2](https://github.com/BenLangmead/bowtie2)
-    1. Navigate to direcotry with `PKGBUILD`
-        ```bash
-        cd pkgbuilds/bowtie2_2.5.4/
-        ```
-    2. Execute `makedeb` in container
-        ```bash
-        apptainer exec --fakeroot --writable-tmpfs debian-makepkg.sif makedeb
+1. Navigate to direcotry with `PKGBUILD`
+    ```bash
+    cd pkgbuilds/bowtie2_2.5.4/
+    ```
+2. Execute `makedeb` in container
+    ```bash
+    apptainer exec --fakeroot --writable-tmpfs debian-makepkg.sif makedeb
         ```
 
 ### Create repo
