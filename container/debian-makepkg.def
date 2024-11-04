@@ -11,6 +11,7 @@ MirrorURL: http://debian.csail.mit.edu/debian/
 %post
     # Install packages
     apt-get -y install nano wget locales gcc makepkg curl file libarchive-tools zlib1g-dev sudo
+    apt-get clean
 
     # Set locale
     echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
