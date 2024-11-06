@@ -7,6 +7,10 @@
         "install": ["default-jre-headless"],
         "make": []
     },
+    "r": {
+        "install": ["r-base"],
+        "make": ["r-base-dev"]
+    },
     "zlib": {
         "install": ["zlib1g"],
         "make": ["zlib1g-dev"]
