@@ -1,0 +1,26 @@
+# Maintainer: Charles Vejnar <first name [dot] last name [at] gmail [dot] com>
+
+pkgname=nextflow
+pkgver=24.10.3
+pkgrel=1
+pkgdesc="A DSL for data-driven computational pipelines"
+arch=("x86_64")
+url="https://www.nextflow.io"
+license=("Apache-2.0")
+depends=('java-runtime-headless>=17'
+         'bash')
+makedepends=()
+source=("$pkgname-${pkgver}::https://github.com/nextflow-io/nextflow/releases/download/v${pkgver}/nextflow-${pkgver}-dist")
+noextract=("$pkgname-${pkgver}")
+sha256sums=('c1a0f9a59406bc5d0c56734a5cc35294c9d0e600c08d0685b4072659cf69b8f2')
+
+build() {
+    cd "${srcdir}"
+
+    sed -i "/^NXF_VER=.*/ a NXF_OFFLINE=true" "${pkgname}-${pkgver}"
+    sed -i "/^NXF_VER=.*/ a NXF_OPTS='-XX:-UsePerfData'" "${pkgname}-${pkgver}"
+}
+
+package() {
+    install -Dm755 "${srcdir}/${pkgname}-${pkgver}" "${pkgdir}/usr/bin/nextflow"
+}
